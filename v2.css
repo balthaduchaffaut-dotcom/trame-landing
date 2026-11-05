@@ -83,10 +83,17 @@
   .trame .hero__art{margin:calc(-1 * clamp(48px,9vw,136px)) calc(-1 * var(--gutter)) 0 0;align-self:start}
 }
 
+/* La vapeur du café : trois volutes au trait d'encre qui montent et s'effacent en boucle. */
+.trame .hero__art{position:relative}
+.trame .hero-steam{position:absolute;top:0;left:0;width:100%;height:auto;aspect-ratio:1090 / 920;pointer-events:none;overflow:visible}
+.trame .hero-steam path{fill:none;stroke:var(--ink);stroke-width:3.6;stroke-linecap:round;stroke-dasharray:55 100;stroke-dashoffset:55;opacity:0;animation:trame-vapeur 3.6s cubic-bezier(.45,.1,.55,.9) infinite}
+.trame .hero-steam path:nth-child(2){animation-delay:-1.2s;animation-duration:4s}
+.trame .hero-steam path:nth-child(3){animation-delay:-2.5s}
+@keyframes trame-vapeur{0%{stroke-dashoffset:55;opacity:0}20%{opacity:1}65%{opacity:.75}100%{stroke-dashoffset:-100;opacity:0}}
+
 /* Survol de l'illustration : calques ajoutés par v2.js (souris uniquement), découpés dans la même image.
    Chaque calque grandit autour de son centre plus qu'il ne se déplace : il recouvre toujours son empreinte
    d'origine, sans laisser voir de double sous lui. */
-.trame .hero__art{position:relative}
 .trame .hero-layer,.trame .hero-keys{position:absolute;top:0;left:0;width:100%;pointer-events:none}
 .trame .hero-layer img{width:100%;height:auto;pointer-events:auto}
 .trame .hero-layer{filter:drop-shadow(0 0 0 rgba(35,35,35,0));transition:transform .55s var(--lift),filter .55s var(--lift)}
@@ -325,6 +332,6 @@
 /* ---------- Mouvement réduit ---------- */
 @media (prefers-reduced-motion:reduce){
   .trame *,.trame *::before,.trame *::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
-  .trame .hero-layer,.trame .hero-keys{display:none}
+  .trame .hero-layer,.trame .hero-keys,.trame .hero-steam{display:none}
 }
 .trame .legal,.trame main{scroll-margin-top:calc(var(--masthead) + 16px)}
