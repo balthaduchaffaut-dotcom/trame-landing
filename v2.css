@@ -1,0 +1,302 @@
+/* Trame · landing V2, direction « Atelier de transmission ».
+   Tout est limité à .trame : la V1 (dépôt lerenard) n'en charge rien. */
+
+@font-face{font-family:"DM Sans";font-style:normal;font-weight:100 1000;font-display:swap;src:url("assets/fonts/dm-sans-normal-latin.woff2") format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"DM Sans";font-style:normal;font-weight:100 1000;font-display:swap;src:url("assets/fonts/dm-sans-normal-latin-ext.woff2") format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+
+/* ---------- Tokens ---------- */
+.trame{
+  --paper:#FFFCF6;--ink:#232323;--peach:#F6C3A7;--apricot:#FFF0E5;--ember:#A44023;--muted:#625B54;--line:#B6A99C;
+  /* texte secondaire sur encre, teinté du papier (8:1 sur #232323) */
+  --on-ink:#FFFCF6;--on-ink-muted:#D6CCC1;
+  --font:"DM Sans",Arial,sans-serif;
+  --radius-control:6px;--radius-panel:10px;
+  --gutter:clamp(20px,4vw,56px);
+  --masthead:68px;
+  --section:clamp(80px,9vw,136px);
+  --text:clamp(16px,.9rem + .3vw,18px);
+  margin:0;font-family:var(--font);font-size:var(--text);line-height:1.6;color:var(--ink);background:var(--paper);
+  -webkit-text-size-adjust:100%;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased;
+  caret-color:var(--ember);accent-color:var(--ink);scrollbar-color:var(--line) var(--paper);
+}
+.trame *,.trame *::before,.trame *::after{box-sizing:border-box}
+.trame ::selection{background:var(--peach);color:var(--ink)}
+.trame [hidden]{display:none!important}
+.trame img,.trame svg,.trame picture{display:block;max-width:100%}
+.trame a{color:inherit;text-underline-offset:.2em;text-decoration-thickness:1.5px}
+.trame p,.trame figure,.trame dl,.trame dd{margin:0}
+.trame h1,.trame h2,.trame h3{margin:0;font-weight:600;text-wrap:balance}
+.trame h1{font-size:clamp(42px,5.8vw,88px);line-height:1;letter-spacing:-.04em}
+.trame h2{font-size:clamp(32px,3.6vw,52px);line-height:1.06;letter-spacing:-.035em}
+.trame h3{font-size:clamp(19px,1.5vw,22px);line-height:1.25;letter-spacing:-.02em}
+.trame mark{background:none;color:inherit;text-decoration:underline;text-decoration-color:var(--peach);text-decoration-thickness:.18em;text-underline-offset:.08em;text-decoration-skip-ink:none}
+.trame :focus-visible{outline:3px solid var(--ember);outline-offset:3px;border-radius:2px}
+.trame [tabindex="-1"]:focus{outline:none}
+.trame .wrap{width:100%;max-width:calc(1240px + 2 * var(--gutter));margin-inline:auto;padding-inline:max(var(--gutter),env(safe-area-inset-left,0px)) max(var(--gutter),env(safe-area-inset-right,0px))}
+.trame .skip{position:absolute;left:12px;top:-60px;z-index:20;padding:10px 16px;background:var(--ink);color:var(--paper);border-radius:var(--radius-control);font-weight:600;text-decoration:none}
+.trame .skip:focus{top:12px}
+
+/* ---------- Boutons ---------- */
+.trame .btn{min-height:52px;display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:13px 24px;border:1.5px solid var(--ink);border-radius:var(--radius-control);font:600 16px/1.2 var(--font);letter-spacing:-.005em;text-align:center;text-decoration:none;background:var(--ink);color:var(--paper);cursor:pointer;transition:background-color 160ms cubic-bezier(.16,1,.3,1),border-color 160ms cubic-bezier(.16,1,.3,1),color 160ms cubic-bezier(.16,1,.3,1)}
+.trame .btn:hover{background:var(--ember);border-color:var(--ember)}
+.trame .btn:active{background:#7E3019;border-color:#7E3019}
+.trame .btn--ghost{background:transparent;color:var(--ink)}
+.trame .btn--ghost:hover{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+.trame .btn--sm{min-height:48px;padding:11px 20px;white-space:nowrap}
+.trame .btn--block{width:100%}
+.trame .btn:disabled{cursor:progress;background:var(--muted);border-color:var(--muted)}
+.trame .actions{display:flex;flex-wrap:wrap;gap:12px}
+
+/* ---------- Bandeau ---------- */
+.trame .masthead{position:sticky;top:0;z-index:10;background:var(--paper);border-bottom:1px solid var(--ink)}
+.trame .masthead__bar{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:var(--masthead)}
+.trame .logo{display:inline-flex;align-items:center;min-height:44px;flex:none}
+.trame .logo img{width:auto;height:40px}
+.trame .logo--lg img{height:56px}
+.trame .nav{display:flex;align-items:center;gap:4px 32px}
+.trame .nav__link{display:inline-flex;align-items:center;min-height:44px;font-size:16px;font-weight:500;text-decoration:none;text-underline-offset:8px;text-decoration-thickness:2px}
+.trame .nav__link:hover{text-decoration-line:underline;text-decoration-color:var(--line)}
+.trame .nav__link[aria-current]{text-decoration-line:underline;text-decoration-color:var(--ember)}
+.trame .nav .btn{margin-left:4px}
+@media (max-width:1040px){.trame .nav__link{display:none}}
+@media (max-width:360px){.trame .logo img{height:34px}.trame .nav .btn{padding-inline:14px;font-size:15px}}
+
+/* ---------- Hero ---------- */
+.trame .hero{padding-block:clamp(40px,6vw,88px) clamp(40px,4.5vw,64px);overflow:hidden}
+.trame .hero__grid{display:grid;grid-template-columns:minmax(0,1fr);gap:clamp(28px,4vw,48px);align-items:center}
+.trame .hero h1{grid-column:1 / -1;max-width:14em}
+.trame .hero__lead{font-size:clamp(19px,1.6vw,23px);line-height:1.4;font-weight:600;letter-spacing:-.015em}
+.trame .hero__lead span{font-weight:400;color:var(--muted)}
+.trame .ticks{list-style:none;margin:28px 0 0;padding:0;display:grid;gap:12px;max-width:34em}
+.trame .ticks li{display:flex;gap:12px;align-items:flex-start}
+.trame .tick{flex:none;margin-top:2px;fill:none;stroke:var(--ember);stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
+.trame .hero .actions{margin-top:36px}
+.trame .hero__text{position:relative;z-index:1}
+/* Le haut de l'illustration est du papier vide (6 % de sa hauteur) : elle remonte légèrement vers les boutons. */
+.trame .hero__art{margin-top:-2%}
+.trame .hero__art img{width:100%;height:auto}
+@media (min-width:900px){
+  .trame .hero__grid{grid-template-columns:minmax(0,5fr) minmax(0,7fr);column-gap:clamp(24px,3vw,48px)}
+  .trame .hero h1{position:relative;z-index:1}
+  .trame .hero__text{align-self:start}
+  /* L'illustration remonte sous la seconde ligne, courte, du titre : son haut gauche est du papier vide. */
+  .trame .hero__art{margin:calc(-1 * clamp(48px,9vw,136px)) calc(-1 * var(--gutter)) 0 0;align-self:start}
+}
+
+/* ---------- Bandeau d'introduction ---------- */
+.trame .intro{background:var(--apricot);border-block:1px solid var(--ink);padding-block:clamp(56px,7vw,96px)}
+.trame .intro__grid{display:grid;gap:28px 72px}
+.trame .intro__statement{font-size:clamp(34px,4.4vw,64px);font-weight:600;line-height:1.02;letter-spacing:-.04em;text-wrap:balance}
+.trame .intro__statement span{color:var(--ember)}
+.trame .intro__body{display:grid;gap:14px;align-content:end;max-width:34em}
+.trame .intro__lead{font-size:clamp(19px,1.6vw,22px);font-weight:600;letter-spacing:-.015em;line-height:1.35}
+@media (min-width:900px){.trame .intro__grid{grid-template-columns:minmax(0,7fr) minmax(0,5fr);align-items:end}}
+
+/* ---------- Sections et intercalaires ---------- */
+.trame .section{position:relative;padding-block:var(--section);border-top:1px solid var(--ink);scroll-margin-top:calc(var(--masthead) + 44px)}
+.trame .section>.wrap{position:relative}
+/* L'intercalaire : un onglet de classeur posé sur le trait de section. */
+.trame .tab{position:absolute;left:calc(max(var(--gutter),env(safe-area-inset-left,0px)) + (100% - 2 * var(--gutter) - 12em) * var(--tab-i,0) / 6);top:calc(-1 * var(--section) - 1px);transform:translateY(-100%);padding:7px 16px 6px;background:var(--peach);border:1px solid var(--ink);border-bottom:0;border-radius:8px 8px 0 0;font-size:14px;font-weight:600;line-height:1.3;letter-spacing:-.005em;white-space:nowrap;color:var(--ink)}
+.trame .tab--last{background:var(--ember);color:var(--paper)}
+.trame .lede{display:grid;gap:20px 72px;margin-bottom:clamp(48px,6vw,80px)}
+.trame .lede h2{max-width:16em}
+.trame .lede p{max-width:34em;color:var(--muted)}
+.trame .lede strong{color:var(--ink);font-weight:600}
+@media (min-width:900px){.trame .lede{grid-template-columns:minmax(0,7fr) minmax(0,5fr);align-items:end}}
+
+/* ---------- Problème : un relevé ---------- */
+.trame .ledger{border-bottom:1px solid var(--line)}
+.trame .ledger__row{display:grid;gap:6px 48px;padding-block:clamp(18px,2.4vw,28px);border-top:1px solid var(--line);align-items:baseline}
+.trame .ledger dt{font-size:clamp(44px,5.6vw,84px);font-weight:600;line-height:.95;letter-spacing:-.04em;font-variant-numeric:tabular-nums lining-nums}
+.trame .ledger dd{font-size:clamp(16px,1.3vw,19px);line-height:1.45;color:var(--muted);max-width:30em}
+.trame .sources{margin-top:24px;font-size:14px;color:var(--muted)}
+@media (min-width:720px){.trame .ledger__row{grid-template-columns:minmax(0,5fr) minmax(0,7fr)}}
+
+/* ---------- Comment ça marche : le fil ---------- */
+.trame .weave{position:relative;--node:48px}
+.trame .weave__thread{display:none}
+.trame .weave__flag{position:absolute;left:calc(var(--node) / 2 - 4.75px);bottom:-2px;overflow:visible}
+.trame .weave__pole{fill:none;stroke:var(--ink);stroke-width:1.5;stroke-linecap:round}
+.trame .weave__cloth{fill:var(--ember);stroke:var(--ink);stroke-width:1.5;stroke-linejoin:round}
+.trame .steps{list-style:none;margin:0;padding:0 0 40px;display:grid;gap:56px;position:relative}
+.trame .steps::before{content:"";position:absolute;left:calc(var(--node) / 2 - .75px);top:calc(var(--node) / 2);bottom:0;border-left:1.5px dashed var(--ink)}
+.trame .step{position:relative;display:grid;grid-template-columns:var(--node) minmax(0,1fr);column-gap:20px;align-content:start}
+.trame .step>*:not(.step__node){grid-column:2}
+.trame .step__node{grid-column:1;grid-row:1 / span 4;align-self:start;position:relative;z-index:1;display:grid;place-items:center;width:var(--node);height:var(--node);border:1.5px solid var(--ink);border-radius:50%;background:var(--peach);font-size:14px;font-weight:600;letter-spacing:.02em;font-variant-numeric:tabular-nums}
+.trame .step__art{width:100%;max-width:520px;aspect-ratio:3/2;margin-bottom:20px}
+.trame .step h3{margin-bottom:10px}
+.trame .step p:not(.step__node):not(.tag){font-size:16px;line-height:1.6;color:var(--muted)}
+.trame .tag{justify-self:start;margin-top:16px;padding:5px 10px;border:1px solid var(--ink);border-radius:4px;font-size:14px;font-weight:500;line-height:1.3}
+@media (min-width:1024px){
+  .trame .weave__thread{display:block;position:absolute;left:0;right:0;top:calc(var(--node) / 2 - 20px);width:100%;height:40px;overflow:visible}
+  .trame .weave__thread path{fill:none;stroke:var(--ink);stroke-width:1.5;stroke-dasharray:7 7;stroke-linecap:round;vector-effect:non-scaling-stroke}
+  .trame .weave__flag{left:auto;bottom:auto;right:-6px;top:calc(var(--node) / 2 - 30px)}
+  .trame .steps{grid-template-columns:repeat(3,minmax(0,1fr));gap:40px;padding-bottom:0}
+  .trame .steps::before{display:none}
+  .trame .step{grid-template-columns:minmax(0,1fr)}
+  .trame .step>*:not(.step__node){grid-column:1}
+  .trame .step__node{grid-row:auto;margin-bottom:28px}
+  .trame .step__art{max-width:none}
+}
+/* Étape 2 : les fiches du parcours, dessinées dans la grammaire des planches (trait 3, aplats pêche, dernier onglet braise). */
+.trame .sketch{width:100%;height:auto;overflow:visible}
+.trame .sketch polygon{stroke:var(--ink);stroke-width:3;stroke-linejoin:round}
+.trame .sk-face{fill:var(--paper)}
+.trame .sk-edge{fill:var(--peach)}
+.trame .sketch text{font:600 21px/1 var(--font);letter-spacing:-.01em;fill:var(--ink)}
+
+/* Le papier des PNG maîtres a été aplati sur #FFFCF6 (pixels clairs à ≤ 7 niveaux du papier mesuré, trait intact)
+   avant encodage : les images se posent sans cadre, sans masque, filtre ni mélange. */
+.trame .art img{width:100%;height:100%;object-fit:contain}
+
+/* Signature : le fil se trace au défilement, les étapes se colorent à son passage.
+   Repli : fil complet et pastilles pêche, sans mouvement. */
+@supports (animation-timeline:view()){
+  @media (prefers-reduced-motion:no-preference){
+    .trame .weave{view-timeline:--weave block}
+    .trame .weave__thread,.trame .steps::before{animation:trame-draw linear both;animation-timeline:--weave;animation-range:cover 12% cover 46%}
+    .trame .steps::before{animation-name:trame-draw-down}
+    .trame .step__node{animation:trame-node linear both;animation-timeline:--weave}
+    .trame .step:nth-child(1) .step__node{animation-range:cover 10% cover 14%}
+    .trame .step:nth-child(2) .step__node{animation-range:cover 21% cover 25%}
+    .trame .step:nth-child(3) .step__node{animation-range:cover 32% cover 36%}
+    .trame .weave__flag{animation:trame-flag linear both;animation-timeline:--weave;animation-range:cover 42% cover 47%}
+    @media (max-width:1023.98px){
+      .trame .steps::before{animation-range:cover 8% cover 70%}
+      .trame .step:nth-child(1) .step__node{animation-range:cover 6% cover 10%}
+      .trame .step:nth-child(2) .step__node{animation-range:cover 30% cover 34%}
+      .trame .step:nth-child(3) .step__node{animation-range:cover 54% cover 58%}
+      .trame .weave__flag{animation-range:cover 66% cover 72%}
+    }
+  }
+}
+@keyframes trame-draw{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
+@keyframes trame-draw-down{from{clip-path:inset(0 0 100% 0)}to{clip-path:inset(0 0 0 0)}}
+@keyframes trame-node{from{background:var(--paper)}to{background:var(--peach)}}
+@keyframes trame-flag{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+/* ---------- Intégrations : le tableau des connexions, sur l'encre ---------- */
+.trame .lede--ink p{color:var(--on-ink-muted)}
+.trame .lede__side{display:grid;gap:24px;justify-items:start}
+.trame .btn--on-ink{background:transparent;border-color:var(--paper);color:var(--paper)}
+.trame .btn--on-ink:hover{background:var(--paper);border-color:var(--paper);color:var(--ink)}
+.trame .btn--on-ink:focus-visible{outline-color:var(--peach)}
+.trame .board{margin:0}
+/* Le relief du logo : une feuille papier posée sur un calque pêche décalé. */
+.trame .board__sheet{padding:clamp(10px,2.4vw,32px);background:var(--paper);border-radius:var(--radius-panel);box-shadow:clamp(6px,.8vw,12px) clamp(6px,.8vw,12px) 0 var(--peach)}
+.trame .board img{width:100%;height:auto}
+
+/* ---------- Pour l'arrivant : la grille tissée ---------- */
+.trame .loom{display:grid;grid-template-columns:minmax(0,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.trame .loom__cell,.trame .proof{border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+.trame .loom__cell{display:grid;align-content:start;gap:10px;padding:clamp(24px,3vw,40px)}
+.trame .loom__cell p{font-size:16px;line-height:1.55;color:var(--muted);max-width:30em}
+.trame .picto{width:112px;height:112px;margin:-8px 0 10px -8px}
+@media (max-width:639.98px){
+  .trame .loom__cell{grid-template-columns:76px minmax(0,1fr);column-gap:16px;align-items:start}
+  .trame .loom__cell .picto{grid-row:span 2;width:84px;height:84px;margin:-10px 0 0 -10px}
+}
+.trame .picto img{width:100%;height:100%;object-fit:contain}
+.trame .proof{display:grid;align-content:center;gap:8px 24px;margin:0;padding:clamp(24px,3vw,40px);background:var(--apricot)}
+.trame .proof__value{font-size:clamp(56px,6vw,96px);font-weight:600;line-height:.9;letter-spacing:-.04em;font-variant-numeric:tabular-nums}
+.trame .proof__label{font-size:clamp(17px,1.4vw,20px);font-weight:500;line-height:1.35;max-width:22em}
+.trame .proof__source{font-size:14px;color:var(--muted)}
+/* Six cases régulières, puis la preuve chiffrée en bande sur toute la largeur. */
+@media (min-width:640px){
+  .trame .loom{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .trame .proof{grid-column:1 / -1;grid-template-columns:auto minmax(0,1fr);align-items:center;column-gap:clamp(24px,3vw,48px)}
+  .trame .proof__value{grid-row:span 2}
+  .trame .proof__label{align-self:end}
+  .trame .proof__source{grid-column:2;align-self:start}
+}
+@media (min-width:1024px){.trame .loom{grid-template-columns:repeat(3,minmax(0,1fr))}}
+
+/* ---------- Quand quelqu'un part ---------- */
+.trame .handover{display:grid;gap:40px;align-items:center}
+.trame .handover__art{aspect-ratio:3/2;margin-inline:calc(-1 * var(--gutter) / 2)}
+.trame .handover__text{max-width:32em}
+.trame .handover__text h2{margin-bottom:24px}
+.trame .handover__text>p{color:var(--muted)}
+.trame .ticks--compact{margin-top:28px}
+@media (min-width:900px){.trame .handover{grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:56px}.trame .handover__art{margin-inline:calc(-1 * var(--gutter) / 2) 0}}
+
+/* ---------- Pour qui ---------- */
+.trame .audiences{display:grid;grid-template-columns:minmax(0,1fr)}
+.trame .audience{display:grid;align-content:start;gap:12px;padding-block:32px;border-top:1px solid var(--line)}
+.trame .audience p{font-size:16px;line-height:1.55;color:var(--muted);max-width:26em}
+.trame .picto--lg{width:136px;height:136px}
+@media (min-width:768px){
+  .trame .audiences{grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--line)}
+  .trame .audience{border-top:0;padding:8px clamp(20px,2.6vw,40px) 8px}
+  .trame .audience+.audience{border-left:1px solid var(--line)}
+  .trame .audience:first-child{padding-left:0}
+  .trame .audience:last-child{padding-right:0}
+  .trame .audiences{padding-top:32px}
+}
+
+/* ---------- Bêta : la clôture à l'encre ---------- */
+.trame .section--ink{background:var(--ink);color:var(--on-ink)}
+.trame .beta{display:grid;gap:44px;align-items:start}
+.trame .beta__intro h2{margin-bottom:24px;font-size:clamp(36px,4.6vw,68px);line-height:1;letter-spacing:-.04em}
+.trame .beta__intro p{max-width:28em;color:var(--on-ink-muted)}
+.trame .sheet{background:var(--paper);color:var(--ink);border-radius:var(--radius-panel);padding:clamp(22px,3vw,40px)}
+@media (min-width:960px){.trame .beta{grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:72px}.trame .beta__intro{position:sticky;top:calc(var(--masthead) + 40px)}}
+
+.trame .form{display:grid;grid-template-columns:minmax(0,1fr);gap:20px}
+@media (min-width:600px){.trame .form{grid-template-columns:repeat(2,minmax(0,1fr))}.trame .field--full{grid-column:1/-1}}
+.trame .field{display:grid;gap:8px;min-width:0;margin:0;padding:0;border:0}
+.trame .field>label,.trame .choices legend{font-size:15px;font-weight:600;line-height:1.3}
+.trame .opt{font-weight:400;color:var(--muted)}
+.trame input[type=email],.trame input[type=text],.trame select{width:100%;min-height:52px;padding:12px 14px;font:400 16px/1.4 var(--font);color:var(--ink);background:var(--paper);border:1px solid var(--muted);border-radius:var(--radius-control);transition:border-color 160ms cubic-bezier(.16,1,.3,1),box-shadow 160ms cubic-bezier(.16,1,.3,1)}
+.trame input::placeholder{color:#6F665E}
+.trame input[type=email]:hover,.trame input[type=text]:hover,.trame select:hover{border-color:var(--ink)}
+.trame input[type=email]:focus-visible,.trame input[type=text]:focus-visible,.trame select:focus-visible{outline:3px solid var(--ember);outline-offset:1px;border-color:var(--ink)}
+.trame select{appearance:none;-webkit-appearance:none;padding-right:44px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='20' height='20' fill='none' stroke='%23232323' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center}
+.trame [aria-invalid=true]{border-color:var(--ember)!important;box-shadow:inset 0 0 0 1px var(--ember)}
+.trame .choices legend{padding:0;margin-bottom:10px}
+.trame .choices__row{display:flex;flex-wrap:wrap;gap:8px}
+.trame .choice{position:relative;display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:0 16px;border:1px solid var(--muted);border-radius:var(--radius-control);background:var(--paper);font-size:16px;cursor:pointer;transition:border-color 160ms cubic-bezier(.16,1,.3,1),background-color 160ms cubic-bezier(.16,1,.3,1)}
+.trame .choice:hover{border-color:var(--ink)}
+.trame .choice input{width:18px;height:18px;margin:0}
+.trame .choice:has(input:checked){border-color:var(--ink);background:var(--apricot);box-shadow:inset 0 0 0 1px var(--ink)}
+.trame .honeypot{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.trame .consent{display:flex;gap:12px;align-items:flex-start;font-size:15px;line-height:1.5;cursor:pointer}
+.trame .consent input{flex:none;width:20px;height:20px;margin:2px 0 0}
+.trame .consent a{font-weight:600}
+.trame .form__submit{display:grid;gap:12px;padding-top:4px}
+.trame .form__msg{min-width:0;font-size:15px;line-height:1.5;color:var(--muted)}
+.trame .form__msg:empty,.trame .field__err:empty{display:none}
+.trame .field__err{margin:0;font-size:15px;line-height:1.45;font-weight:500;color:var(--ember)}
+.trame .consent+.field__err{margin-top:-8px;padding-left:32px}
+.trame .form__msg.is-error{color:var(--ember);font-weight:500}
+.trame .form-ok{padding:28px;border:1px solid var(--ink);border-radius:var(--radius-panel);background:var(--apricot)}
+.trame .form-ok__title{font-size:28px;font-weight:600;letter-spacing:-.035em;margin-bottom:8px}
+
+/* ---------- Pied de page ---------- */
+.trame .colophon{border-top:1px solid var(--ink);padding-top:clamp(56px,6vw,88px);overflow:hidden}
+.trame .colophon__top{display:grid;gap:36px 72px;padding-bottom:clamp(40px,5vw,64px)}
+.trame .colophon__brand p{margin-top:14px;max-width:30em;color:var(--muted)}
+.trame .colophon__contact{display:grid;gap:4px;align-content:start;justify-items:start}
+.trame .colophon__label{font-size:14px;font-weight:600;color:var(--muted)}
+.trame .colophon__contact .btn{margin-top:18px}
+.trame .sel{user-select:all;-webkit-user-select:all}
+@media (min-width:768px){.trame .colophon__top{grid-template-columns:minmax(0,2fr) minmax(0,1fr)}}
+.trame .legal{border-top:1px solid var(--line)}
+.trame .legal summary{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:64px;font-size:20px;font-weight:600;letter-spacing:-.02em;cursor:pointer;list-style:none}
+.trame .legal summary::-webkit-details-marker{display:none}
+.trame .legal summary:hover{color:var(--ember)}
+.trame .legal__chev{flex:none;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;transition:transform 200ms cubic-bezier(.16,1,.3,1)}
+.trame .legal[open] .legal__chev{transform:rotate(180deg)}
+.trame .legal__body{padding-bottom:32px;max-width:48em;font-size:15px;line-height:1.6;color:var(--muted)}
+.trame .legal__body h3{margin:24px 0 6px;font-size:16px;letter-spacing:-.01em;color:var(--ink)}
+.trame .legal__body h3:first-child{margin-top:0}
+.trame .colophon__bottom{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:0 24px;padding-block:20px;border-top:1px solid var(--ink);font-size:14px;color:var(--muted)}
+.trame .colophon__bottom a{display:inline-flex;align-items:center;min-height:44px}
+/* Le nom en très grand, en pêche : une signature typographique, pas un logo. */
+.trame .colophon__mark{margin:clamp(8px,2vw,24px) 0 0;padding-inline:max(var(--gutter),env(safe-area-inset-left,0px));font-size:clamp(96px,27.5vw,440px);font-weight:650;line-height:.74;letter-spacing:-.04em;color:var(--peach);white-space:nowrap;text-align:center;user-select:none;padding-bottom:max(12px,env(safe-area-inset-bottom,0px))}
+
+/* ---------- Mouvement réduit ---------- */
+@media (prefers-reduced-motion:reduce){
+  .trame *,.trame *::before,.trame *::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+}
+.trame .legal,.trame main{scroll-margin-top:calc(var(--masthead) + 16px)}

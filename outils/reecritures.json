@@ -1,0 +1,271 @@
+{
+ "_note": "Réécritures identitaires documentées entre V1 (le Renard) et V2 (Trame). Tout texte absent de cette liste doit rester identique, dans le même ordre.",
+ "textes": [
+  {
+   "zone": "Logotype",
+   "v1": [
+    "le renard"
+   ],
+   "v2": [],
+   "motif": "Nouveau nom ; logo officiel Trame (image SVG, nom accessible « Trame, haut de page » sur le lien)."
+  },
+  {
+   "zone": "Accroche du hero",
+   "v1": [
+    "L'onboarding guidé par le Renard",
+    "Pour les équipes qui accueillent"
+   ],
+   "v2": [
+    "Préparez chaque arrivée avec Trame. Pour les équipes qui accueillent."
+   ],
+   "motif": "Formulation proposée dans le brief Trame ; l'audience est conservée."
+  },
+  {
+   "zone": "Puce du hero",
+   "v1": [
+    "Un guide aux côtés de l'arrivant, sur ses vraies tâches"
+   ],
+   "v2": [
+    "Un accompagnement de l'arrivant, sur ses vraies tâches"
+   ],
+   "motif": "« Un guide aux côtés de » personnifiait le produit."
+  },
+  {
+   "zone": "Introduction",
+   "v1": [
+    "Connecté à vos outils, il lit vos documents, recueille le savoir-faire de votre équipe, et son IA en tire un onboarding sur mesure pour chaque arrivant."
+   ],
+   "v2": [
+    "Connectez vos outils : Trame analyse vos documents, rassemble le savoir-faire de votre équipe et en tire, avec l'IA, un onboarding sur mesure pour chaque arrivant."
+   ],
+   "motif": "Pronom « il » remplacé ; mêmes actions."
+  },
+  {
+   "zone": "Titre Comment ça marche",
+   "v1": [
+    "Vous nous dites l'essentiel, le Renard s'occupe du reste."
+   ],
+   "v2": [
+    "Partagez le savoir de votre équipe. Structurez le parcours d'arrivée."
+   ],
+   "motif": "Formulation du brief Trame."
+  },
+  {
+   "zone": "Étape 1, titre",
+   "v1": [
+    "Le Renard recueille le savoir"
+   ],
+   "v2": [
+    "Rassemblez le savoir de votre équipe"
+   ],
+   "motif": "Formulation du brief Trame."
+  },
+  {
+   "zone": "Étape 1, texte",
+   "v1": [
+    "Connectez vos outils ou importez vos documents : fiche de poste, base de connaissances, process. Le Renard les lit, puis pose au manager les bonnes questions pour compléter ce qui n'est écrit nulle part."
+   ],
+   "v2": [
+    "Connectez vos outils ou importez vos documents : fiche de poste, base de connaissances, process. Trame les analyse, puis soumet au manager des questions de préparation pour compléter ce qui n'est écrit nulle part."
+   ],
+   "motif": "« Question de préparation » (brief) ; même fonction."
+  },
+  {
+   "zone": "Étape 2, titre",
+   "v1": [
+    "Son IA construit le parcours"
+   ],
+   "v2": [
+    "Préparez un parcours adapté au poste"
+   ],
+   "motif": "Formulation du brief Trame."
+  },
+  {
+   "zone": "Étape 2, texte",
+   "v1": [
+    "Parcours, missions, ressources, tutos : l'IA du Renard crée un onboarding sur mesure, que vous relisez et ajustez avant le premier jour."
+   ],
+   "v2": [
+    "Parcours, missions, ressources, tutos : l'IA de Trame prépare un onboarding sur mesure, que vous relisez et ajustez avant le premier jour."
+   ],
+   "motif": "Nom."
+  },
+  {
+   "zone": "Étape 3, titre",
+   "v1": [
+    "Il accompagne l'arrivant"
+   ],
+   "v2": [
+    "Donnez à chaque recrue les bons repères"
+   ],
+   "motif": "Formulation du brief Trame, raccourcie (« au bon moment » figure déjà dans le texte)."
+  },
+  {
+   "zone": "Étape 3, texte",
+   "v1": [
+    "Des quêtes au bon moment, des entraînements sur les vraies tâches, et une réponse à chaque question. Quand il ne sait pas, il prévient le bon collègue."
+   ],
+   "v2": [
+    "Des quêtes au bon moment, des entraînements sur les vraies tâches, et une réponse à chaque question. Quand l'information n'est pas disponible dans les ressources de l'équipe, Trame prévient le bon collègue."
+   ],
+   "motif": "« Il ne sait pas » remplacé ; la notification du collègue est conservée telle que la V1 la décrit."
+  },
+  {
+   "zone": "Pour l'arrivant, texte",
+   "v1": [
+    "Une plateforme tout-en-un et ludique, que l'IA du Renard construit à partir de vos documents et de ce que sait votre équipe."
+   ],
+   "v2": [
+    "Une plateforme tout-en-un et ludique, préparée avec l'IA à partir de vos documents et de ce que sait votre équipe."
+   ],
+   "motif": "Nom retiré pour éviter la répétition."
+  },
+  {
+   "zone": "Bénéfice Réponse",
+   "v1": [
+    "Et quand il ne sait pas, il prévient le bon collègue au lieu d'inventer."
+   ],
+   "v2": [
+    "Quand l'information n'est pas dans les ressources de l'équipe, l'outil prévient le bon collègue plutôt que d'inventer une réponse."
+   ],
+   "motif": "Personnification retirée ; même comportement."
+  },
+  {
+   "zone": "Quand quelqu'un part",
+   "v1": [
+    "Avant son dernier jour, le Renard mène un entretien guidé avec la personne qui part. Les clients à part, les raccourcis, les bons contacts : tout rejoint la base de l'équipe et l'onboarding de son successeur."
+   ],
+   "v2": [
+    "Avant son dernier jour, la personne qui part répond à un entretien guidé dans Trame. Les clients à part, les raccourcis, les bons contacts : tout rejoint la base de l'équipe et l'onboarding de son successeur."
+   ],
+   "motif": "La personne devient le sujet ; l'outil n'« mène » plus l'entretien."
+  },
+  {
+   "zone": "Bêta",
+   "v1": [
+    "On cherche nos premières équipes pour tester le Renard sur une vraie arrivée, et le construire avec elles. Laissez-nous votre e-mail : on vous écrit personnellement."
+   ],
+   "v2": [
+    "On cherche nos premières équipes pour tester Trame sur une vraie arrivée, et construire la plateforme avec elles. Laissez-nous votre e-mail : on vous écrit personnellement."
+   ],
+   "motif": "Nom ; accord."
+  },
+  {
+   "zone": "Consentement",
+   "v1": [
+    "J'accepte que le Renard utilise ces informations pour me recontacter au sujet de la bêta. Je peux retirer mon accord à tout moment."
+   ],
+   "v2": [
+    "J'accepte que les porteurs du projet Trame utilisent ces informations pour me recontacter au sujet de la bêta. Je peux retirer mon accord à tout moment."
+   ],
+   "motif": "Le responsable de traitement est désigné par les personnes, pas par le produit. À valider juridiquement."
+  },
+  {
+   "zone": "Logotype du pied de page",
+   "v1": [
+    "le renard"
+   ],
+   "v2": [],
+   "motif": "Nouveau nom ; logo officiel Trame (image SVG, nom accessible « Trame, haut de page » sur le lien)."
+  },
+  {
+   "zone": "Pied de page",
+   "v1": [
+    "L'onboarding guidé par le Renard : des recrues opérationnelles en quelques jours, et un savoir qui reste dans l'équipe."
+   ],
+   "v2": [
+    "La plateforme qui prépare chaque arrivée : des recrues opérationnelles en quelques jours, et un savoir qui reste dans l'équipe."
+   ],
+   "motif": "Nom déjà affiché par le logotype juste au-dessus."
+  },
+  {
+   "zone": "Mentions, éditeur",
+   "v1": [
+    "Balthazar Amaudric et Léopold Klein, porteurs du projet le Renard (nom de travail, projet en cours de création, sans société immatriculée à ce jour).Adresse : [ADRESSE POSTALE À COMPLÉTER]Contact : contact@votre-domaine.fr"
+   ],
+   "v2": [
+    "Balthazar Amaudric et Léopold Klein, porteurs du projet Trame (projet en cours de création, sans société immatriculée à ce jour).Adresse : [ADRESSE POSTALE À COMPLÉTER]Contact : contact@votre-domaine.fr"
+   ],
+   "motif": "Éditeurs inchangés ; nom du projet mis à jour. À valider juridiquement."
+  },
+  {
+   "zone": "Mentions, propriété",
+   "v1": [
+    "Les textes, le logo, la mascotte et les illustrations de ce site appartiennent à leurs auteurs. Toute reproduction sans autorisation est interdite."
+   ],
+   "v2": [
+    "Les textes, le logotype et les illustrations de ce site appartiennent à leurs auteurs. Toute reproduction sans autorisation est interdite."
+   ],
+   "motif": "Plus de mascotte dans la V2."
+  },
+  {
+   "zone": "Confidentialité, responsables",
+   "v1": [
+    "Balthazar Amaudric et Léopold Klein, porteurs du projet le Renard. Pour toute question : contact@votre-domaine.fr"
+   ],
+   "v2": [
+    "Balthazar Amaudric et Léopold Klein, porteurs du projet Trame. Pour toute question : contact@votre-domaine.fr"
+   ],
+   "motif": "Nom du projet."
+  },
+  {
+   "zone": "Copyright",
+   "v1": [
+    "© 2026 le Renard. Nom de travail, projet en construction."
+   ],
+   "v2": [
+    "© 2026 Trame. Projet en construction."
+   ],
+   "motif": "Nom ; disponibilité juridique non vérifiée."
+  },
+  {
+   "zone": "Lien d'évitement",
+   "v1": [],
+   "v2": [
+    "Aller au contenu"
+   ],
+   "motif": "Accessibilité : en-tête désormais fixe."
+  },
+  {
+   "zone": "Rubrique Intégrations (ajout V2 uniquement)",
+   "v1": [],
+   "v2": [
+    {
+     "texte": "Rejoindre la bêta",
+     "apres": "Trame se connecte aux outils où vit déjà le savoir de votre équipe, et en tire le parcours de chaque arrivant. Vous partez de ce qui existe, pas d'une page blanche."
+    },
+    "Intégrations",
+    "Intégrations",
+    "Pas un outil de plus : le fil entre les vôtres.",
+    "Trame se connecte aux outils où vit déjà le savoir de votre équipe, et en tire le parcours de chaque arrivant. Vous partez de ce qui existe, pas d'une page blanche."
+   ],
+   "motif": "Nouvelle rubrique demandée par le commanditaire (visuel « trame konnect »), avec lien de navigation et CTA. Contenu absent de la V1 : différence de contenu assumée entre les variantes, à reporter en V1 ou à documenter dans l'analyse du test."
+  }
+ ],
+ "ancres": [
+  {
+   "v1": [
+    "#top",
+    "le renard"
+   ],
+   "v2": [
+    "#top",
+    ""
+   ]
+  },
+  {
+   "v1": null,
+   "v2": [
+    "#contenu",
+    "Aller au contenu"
+   ]
+  },
+  {
+   "v1": null,
+   "v2": [
+    "#integrations",
+    "Intégrations"
+   ]
+  }
+ ]
+}
