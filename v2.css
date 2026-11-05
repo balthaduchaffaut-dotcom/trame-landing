@@ -83,6 +83,33 @@
   .trame .hero__art{margin:calc(-1 * clamp(48px,9vw,136px)) calc(-1 * var(--gutter)) 0 0;align-self:start}
 }
 
+/* Survol de l'illustration : calques ajoutés par v2.js (souris uniquement), découpés dans la même image.
+   Chaque calque grandit autour de son centre plus qu'il ne se déplace : il recouvre toujours son empreinte
+   d'origine, sans laisser voir de double sous lui. */
+.trame .hero__art{position:relative}
+.trame .hero-layer,.trame .hero-keys{position:absolute;top:0;left:0;width:100%;pointer-events:none}
+.trame .hero-layer img{width:100%;height:auto;pointer-events:auto}
+.trame .hero-layer{filter:drop-shadow(0 0 0 rgba(35,35,35,0));transition:transform .55s var(--lift),filter .55s var(--lift)}
+.trame .hero-layer--panel{--lift:cubic-bezier(.2,.9,.25,1.15);transform-origin:65% 33.6%}
+.trame .hero-layer--panel img{clip-path:polygon(73.67% 63.32%,49.45% 55.16%,48.99% 54.95%,48.49% 54.24%,48.39% 53.04%,50.50% 35.22%,53.26% 7.61%,53.44% 6.63%,54.13% 5.92%,55.14% 5.92%,76.70% 11.90%,81.56% 13.10%,82.29% 13.42%,82.71% 14.02%,82.80% 15.22%,81.06% 26.41%,77.94% 48.59%,76.06% 48.21%,75.60% 48.42%,75.18% 49.02%,73.35% 61.41%,73.53% 62.72%,73.90% 63.15%)}
+.trame .hero-layer--panel:hover{transform:translate(-.3%,-.6%) scale(1.045);filter:drop-shadow(9px 11px 0 rgba(35,35,35,.14))}
+.trame .hero-layer--card{--lift:cubic-bezier(.2,.9,.25,1.25);transform-origin:83.2% 58.4%}
+.trame .hero-layer--card img{clip-path:polygon(90.00% 68.86%,88.90% 68.64%,76.33% 64.08%,74.77% 63.64%,74.04% 63.32%,73.53% 62.72%,73.35% 61.41%,73.81% 58.91%,75.00% 49.78%,75.28% 48.80%,75.60% 48.42%,76.51% 48.21%,90.28% 52.45%,92.20% 53.10%,92.89% 53.80%,93.07% 54.35%,93.07% 55.00%,91.51% 64.24%,91.15% 67.17%,90.87% 68.15%,90.46% 68.64%)}
+.trame .hero-layer--card:hover{transform:translate(.2%,-.3%) scale(1.07) rotate(-1deg);filter:drop-shadow(7px 9px 0 var(--peach))}
+/* La loupe se soulève et grossit ce qu'elle regarde. */
+.trame .hero-layer--mag{--lift:cubic-bezier(.3,.8,.3,1);transform-origin:67.06% 75.65%}
+.trame .hero-layer--mag img{clip-path:polygon(79.45% 94.08%,78.81% 94.08%,78.26% 93.86%,77.66% 93.26%,72.34% 85.76%,71.88% 84.78%,71.97% 84.35%,70.96% 83.04%,70.83% 82.66%,69.54% 83.42%,68.62% 83.75%,67.06% 83.97%,65.96% 83.86%,64.59% 83.42%,63.49% 82.77%,62.57% 82.01%,61.70% 80.98%,61.06% 79.89%,60.32% 77.93%,60.05% 75.65%,60.14% 74.35%,60.50% 72.72%,61.06% 71.41%,61.70% 70.33%,62.57% 69.29%,63.49% 68.53%,65.14% 67.66%,67.06% 67.34%,68.17% 67.45%,69.54% 67.88%,70.64% 68.53%,71.56% 69.29%,72.43% 70.33%,73.62% 72.72%,73.99% 74.35%,74.08% 75.65%,73.99% 76.96%,73.62% 78.59%,73.07% 79.89%,72.43% 80.87%,72.75% 81.03%,73.76% 82.34%,73.94% 82.23%,74.50% 82.45%,80.69% 90.54%,80.96% 91.30%,80.96% 92.28%,80.78% 92.93%,80.37% 93.53%)}
+.trame .hero-layer--mag:hover{transform:scale(1.08);filter:drop-shadow(6px 8px 0 rgba(35,35,35,.14))}
+.trame .hero-layer--lens{filter:none;clip-path:circle(5.35% at 67.06% 75.65%);transform-origin:67.06% 75.65%}
+.trame .hero-layer--lens img{pointer-events:none;transform-origin:67.06% 75.65%;transition:transform .7s cubic-bezier(.3,.8,.3,1)}
+.trame .hero-layer--mag:hover .hero-layer--lens img{transform:scale(1.3)}
+/* Le clavier : des touches s'allument l'une après l'autre, comme sous des doigts. */
+.trame .hero-keys{height:auto;aspect-ratio:1090 / 920;mix-blend-mode:multiply}
+.trame .hero-keys__hit{fill:transparent;pointer-events:all}
+.trame .hero-keys__caps polygon{fill:var(--peach);opacity:0}
+.trame .hero-keys__hit:hover~.hero-keys__caps polygon{animation:trame-frappe 6s linear infinite}
+@keyframes trame-frappe{0%{opacity:0}1.2%{opacity:1}6%{opacity:0}100%{opacity:0}}
+
 /* ---------- Bandeau d'introduction ---------- */
 .trame .intro{background:var(--apricot);border-block:1px solid var(--ink);padding-block:clamp(56px,7vw,96px)}
 .trame .intro__grid{display:grid;gap:28px 72px}
@@ -298,5 +325,6 @@
 /* ---------- Mouvement réduit ---------- */
 @media (prefers-reduced-motion:reduce){
   .trame *,.trame *::before,.trame *::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  .trame .hero-layer,.trame .hero-keys{display:none}
 }
 .trame .legal,.trame main{scroll-margin-top:calc(var(--masthead) + 16px)}
