@@ -16,9 +16,9 @@
     "Pour les équipes qui accueillent"
    ],
    "v2": [
-    "Préparez chaque arrivée avec Trame. Pour les équipes qui accueillent."
+    "Préparez chaque arrivée avec Trame. Pensé pour les entreprises qui recrutent."
    ],
-   "motif": "Formulation proposée dans le brief Trame ; l'audience est conservée."
+   "motif": "Formulation proposée dans le brief Trame ; l'audience est conservée. Audience reformulée à la demande de l'utilisateur (5 nov. 2026) : « Pensé pour les entreprises qui recrutent »."
   },
   {
    "zone": "Puce du hero",
@@ -29,6 +29,26 @@
     "Un accompagnement de l'arrivant, sur ses vraies tâches"
    ],
    "motif": "« Un guide aux côtés de » personnifiait le produit."
+  },
+  {
+   "zone": "Puce du hero (parcours)",
+   "v1": [
+    "Un parcours sur mesure, créé par l'IA à partir de vos outils et de vos documents"
+   ],
+   "v2": [
+    "Un parcours sur mesure, créé par notre IA spécialisée à partir de vos outils et de vos documents"
+   ],
+   "motif": "Reformulation demandée par l'utilisateur (5 nov. 2026), V2 seulement pour l'instant."
+  },
+  {
+   "zone": "Puce du hero (savoir)",
+   "v1": [
+    "Le savoir de l'équipe conservé, même quand quelqu'un part"
+   ],
+   "v2": [
+    "Vos compétences et vos données restent chez vous, même après un départ"
+   ],
+   "motif": "Reformulation demandée par l'utilisateur (5 nov. 2026), V2 seulement pour l'instant."
   },
   {
    "zone": "Introduction",

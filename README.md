@@ -42,7 +42,7 @@ Plus aucun asset du Renard n'est chargé par la V2 (logo, emblème, mascottes, f
 python3 outils/parite.py   # attend la V1 dans ../lerenard/index.html
 ```
 
-Les 23 réécritures liées au nom et à la dépersonnification sont listées avec leur motif dans `outils/reecritures.json`. Le script vérifie qu'elles sont appliquées, puis exige que **tout le reste** soit identique et dans le même ordre (119 blocs de texte), ainsi que les ancres, les champs du formulaire et sa destination. Seules autres différences : les textes internes aux maquettes de téléphone de la V1, retirés avec ce visuel.
+Les réécritures liées au nom et à la dépersonnification (plus trois textes du hero propres à la V2) sont listées avec leur motif dans `outils/reecritures.json`. Le script vérifie qu'elles sont appliquées, puis exige que **tout le reste** soit identique et dans le même ordre (117 blocs de texte), ainsi que les ancres, les champs du formulaire et sa destination. Seules autres différences : les textes internes aux maquettes de téléphone de la V1, retirés avec ce visuel.
 
 ## Rubrique « Intégrations » (V2 uniquement)
 
@@ -88,6 +88,8 @@ Avant un vrai test : instrumenter la V1 à l'identique (`variant: 'A'`), choisir
 ## Chiffres et promesses non vérifiés (dans les deux variantes)
 
 « 12 mois », « 31,5 Md$ … Fortune 500 », « 44 jours », « 1 sur 2 », « +82 % … Brandon Hall Group », sources sans référence précise ; « en quelques jours », « Du pré-boarding à l'autonomie complète », « révolutionnée ». Toute correction doit être faite dans les deux variantes avant comparaison.
+
+Textes du hero modifiés le 5 nov. 2026 dans la V2 seulement (documentés dans `reecritures.json`) : « Pensé pour les entreprises qui recrutent », « créé par notre IA spécialisée », « Vos compétences et vos données restent chez vous, même après un départ ». Tant que la V1 garde les anciennes formulations, le test A/B compare aussi ces textes. La promesse « vos données restent chez vous » engage le produit (hébergement, réversibilité) : à confirmer.
 
 ## Publication
 
